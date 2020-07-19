@@ -58,7 +58,7 @@ class AnimatedArc extends React.Component {
   render () {
     const alpha = this.animatedValue.interpolate({
       inputRange: [0, 1],
-      outputRange: [0, Angle * 0.6]
+      outputRange: [0, Angle]
     })
     const strokeDashoffset = Animated.multiply(alpha, r)
     return (
