@@ -1,0 +1,1 @@
+Playing around with React Animations  https://reactnative.dev/docs/animated whilst following a tutorial on [Youtube](https://www.youtube.com/watch?v=UMvw20nRZls&t=286s).
