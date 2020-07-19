@@ -1,15 +1,15 @@
 import React from 'react'
-import { Text, View, StyleSheet, Dimensions, Button, Animated, Easing } from 'react-native'
+import { View, StyleSheet, Dimensions, Animated, Easing } from 'react-native'
 import Constants from 'expo-constants'
-import Svg, { Path, LinearGradient, Stop, Defs } from 'react-native-svg'
-
+import Svg, { Path, LinearGradient, Stop, Defs, Text } from 'react-native-svg'
+import { BLACK } from './common/colors'
 const AnimatedPath = Animated.createAnimatedComponent(Path)
 const { PI, cos, sin } = Math
 const Angle = PI + PI * 0.4
 const startAngle = PI + PI * 0.2
 const endAngle = 2 * PI - PI * 0.2
 const { width } = Dimensions.get('window')
-const size = width - 32
+const size = (width - 32)
 const cx = size / 2
 const cy = size / 2
 const strokeWidth = 40
@@ -25,13 +25,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: '#000',
-    padding: 8
+    backgroundColor: BLACK,
+    padding: 10
   }
 })
-
-console.log('here', Angle)
-
+console.log('here', size)
 class AnimatedArc extends React.Component {
   constructor () {
     super()
@@ -58,12 +56,12 @@ class AnimatedArc extends React.Component {
   render () {
     const alpha = this.animatedValue.interpolate({
       inputRange: [0, 1],
-      outputRange: [0, Angle]
+      outputRange: [0, Angle * 0.8]
     })
     const strokeDashoffset = Animated.multiply(alpha, r)
     return (
       <View style={styles.container}>
-        <Svg width={size} height={size}>
+        <Svg width={size} height={size} color="red">
           <Defs>
             <LinearGradient id="grad" x1="0" y1="0" x2="100%" y2="0">
               <Stop offset="0" stopColor="#f7cd46" />
@@ -76,6 +74,32 @@ class AnimatedArc extends React.Component {
             {...{ strokeWidth, d }}
             strokeDasharray={`${circumference} ${circumference}`}
           />
+          <Text
+            x={size / 2}
+            y={ size / 2 - 20 }
+            textAnchor="middle"
+            fontWeight="bold"
+            fontSize="28"
+            fill="#f7cd46">
+              2.7
+          </Text>
+          <Text
+            x={size / 2}
+            y={ size / 2 + 5 }
+            textAnchor="middle"
+            fontSize="24"
+            fill="#ef9837">
+              GB
+          </Text>
+          <Text
+            x={size / 2}
+            y={ endY + 15 }
+            textAnchor="middle"
+            fontSize="28"
+            fontWeight="bold"
+            fill="#ef9837">
+              DATA
+          </Text>
           <AnimatedPath
             stroke="white"
             fill="none"
