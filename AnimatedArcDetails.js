@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     padding: 10
   }
 })
-class AnimatedArc extends React.Component {
+class AnimatedArcDetails extends React.Component {
   constructor () {
     super()
     this.animatedValue = new Animated.Value(0)
@@ -111,4 +111,4 @@ class AnimatedArc extends React.Component {
   }
 }
 
-export default AnimatedArc
+export default AnimatedArcDetails
