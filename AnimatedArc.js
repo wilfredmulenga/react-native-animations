@@ -30,8 +30,6 @@ const styles = StyleSheet.create({
   }
 })
 
-console.log('here', Angle)
-
 class AnimatedArc extends React.Component {
   constructor () {
     super()

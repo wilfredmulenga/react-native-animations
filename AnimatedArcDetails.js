@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
     padding: 10
   }
 })
-console.log('here', size)
 class AnimatedArc extends React.Component {
   constructor () {
     super()
